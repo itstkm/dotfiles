@@ -1,0 +1,93 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+palette = "green"
+
+format = """
+$directory\
+[ ](fg:green bg:bg_dark)\
+$git_branch\
+$git_status\
+[ ](fg:bg_dark)\
+\n$character
+"""
+
+right_format = """
+$kubernetes\
+$docker_context\
+$cmd_duration\
+$username\
+✨
+$time
+"""
+
+add_newline = true
+scan_timeout = 30
+command_timeout = 500
+
+
+
+[directory]
+style = "fg:text_dark bg:green bold"
+truncation_length = 5
+truncate_to_repo = true
+truncation_symbol = "…/"
+read_only = " 󰌾 "
+read_only_style = "fg:danger"
+format = '[ $path ]($style)[$read_only]($read_only_style)'
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_branch]
+symbol = ""
+style = "bg:bg_dark"
+format = '[[ $symbol $branch ](fg:green bg:bg_dark)]($style)'
+
+[git_status]
+style = "bg:bg_dark"
+format = '[[($all_status$ahead_behind )](fg:green bg:bg_dark)]($style)'
+
+[kubernetes]
+disabled = false
+format = '[[ ☸ $context( \($namespace\)) ](fg:green)]($style)'
+style = 'bold'
+detect_files = ['Chart.yaml', 'values.yaml']
+detect_folders = ['k8s', 'helm', 'charts']
+
+[docker_context]
+disabled = false
+only_with_files = true
+format = '[[  $context ](fg:green)]($style)'
+style = 'bold'
+
+[cmd_duration]
+min_time = 500
+style = "fg:warn"
+format = "[$duration]($style)"
+
+[time]
+disabled = false
+time_format = "%R"
+format = '[[   $time ](fg:time_fg)]($style)'
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[V](bold green)"
+
+[palettes.green]
+green = "#7FBF7F"
+bg_dark = "#1d2230"
+text_dark = "#1d2230"
+warn = "#EBCB8B"
+time_fg = "#D8DEE9"
+danger = "#BF616A"
