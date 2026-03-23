@@ -11,6 +11,8 @@ My personal config files for macOS, managed with [GNU Stow](https://www.gnu.org/
 | **wezterm** | Terminal (WezTerm) config & keybindings |
 | **shell** | zsh setup (aliases, PATH, etc.) |
 | **starship** | Prompt theme (Starship) |
+| **nvim** | Neovim config powered by [LazyVim](https://www.lazyvim.org/) |
+| **Brewfile** | Homebrew dependencies (`brew bundle`) |
 
 ## Prerequisites
 
@@ -32,6 +34,10 @@ dotfiles/
 ├── starship/
 │   └── .config/
 │       └── starship.toml         # Prompt config
+├── nvim/
+│   └── .config/
+│       └── nvim/                 # LazyVim config
+├── Brewfile                      # Homebrew dependencies
 ```
 
 ## Managing Packages
