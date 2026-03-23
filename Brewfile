@@ -3,6 +3,8 @@ tap "ariga/tap"
 brew "direnv"
 # GitHub command-line tool
 brew "gh"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Cross-shell prompt for astronauts
