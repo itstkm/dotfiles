@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 
 config.automatically_reload_config = true
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
-config.font_size = 12
+config.font_size = 13
 config.use_ime = true
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 20
