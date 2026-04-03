@@ -2,7 +2,7 @@
 
 My personal config files for macOS, managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-> **Heads up**: These are my personal settings. Don't blindly copy them — read through and cherry-pick what works for you.
+> **Heads up**: These are my personal settings. Don't just copy everything — look through them and grab what works for you.
 
 ## What's Included
 
@@ -13,8 +13,9 @@ My personal config files for macOS, managed with [GNU Stow](https://www.gnu.org/
 | **starship** | Prompt theme (Starship) |
 | **nvim** | Neovim config powered by [LazyVim](https://www.lazyvim.org/) |
 | **Brewfile** | Homebrew dependencies (`brew bundle`) |
+| **docs** | Cheat sheets for WezTerm, Neovim, etc. |
 
-## Prerequisites
+## What You Need
 
 - macOS
 - [Homebrew](https://brew.sh/)
@@ -37,15 +38,26 @@ dotfiles/
 ├── nvim/
 │   └── .config/
 │       └── nvim/                 # LazyVim config
+├── docs/                         # Operation manuals
 ├── Brewfile                      # Homebrew dependencies
+├── Makefile                      # Common commands
 ```
 
-## Managing Packages
+## How to Use
 
 ```bash
-# Symlink a package
+# Link a package to your home directory
 stow -t ~ <package>
 
-# Unlink a package
+# Remove the link
 stow -t ~ -D <package>
+
+# Update Brewfile with currently installed tools
+make brew-dump
+
+# Install everything from Brewfile
+make brew-install
+
+# Link all packages at once
+make stow
 ```
