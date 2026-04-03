@@ -15,11 +15,27 @@ My personal config files for macOS, managed with [GNU Stow](https://www.gnu.org/
 | **Brewfile** | Homebrew dependencies (`brew bundle`) |
 | **docs** | Cheat sheets for WezTerm, Neovim, etc. |
 
-## What You Need
+## Getting Started
 
-- macOS
-- [Homebrew](https://brew.sh/)
-- [GNU Stow](https://www.gnu.org/software/stow/) (`brew install stow`)
+1. Install [Homebrew](https://brew.sh/)
+2. Clone this repo
+3. Install all tools from Brewfile
+4. Link all config files
+
+```bash
+# 1. Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 2. Clone
+git clone https://github.com/<your-username>/dotfiles.git <your-path>
+cd <your-path>
+
+# 3. Install tools (includes stow, neovim, wezterm, starship, etc.)
+make brew-install
+
+# 4. Link config files
+make stow
+```
 
 ## File Structure
 
@@ -43,21 +59,15 @@ dotfiles/
 ├── Makefile                      # Common commands
 ```
 
-## How to Use
+## Useful Commands
 
 ```bash
-# Link a package to your home directory
-stow -t ~ <package>
-
-# Remove the link
-stow -t ~ -D <package>
-
 # Update Brewfile with currently installed tools
 make brew-dump
 
-# Install everything from Brewfile
-make brew-install
+# Link a single package
+stow -t ~ <package>
 
-# Link all packages at once
-make stow
+# Remove a link
+stow -t ~ -D <package>
 ```
